@@ -9,7 +9,6 @@ import javax.persistence.metamodel.StaticMetamodel;
 public abstract class AuthenticKey_ {
 
 	public static volatile SingularAttribute<AuthenticKey, Boolean> assignmentStatus;
-	public static volatile SingularAttribute<AuthenticKey, Integer> productId;
 	public static volatile SingularAttribute<AuthenticKey, Boolean> validStatus;
 	public static volatile SingularAttribute<AuthenticKey, Integer> uniqueKey;
 	public static volatile SingularAttribute<AuthenticKey, Long> id;

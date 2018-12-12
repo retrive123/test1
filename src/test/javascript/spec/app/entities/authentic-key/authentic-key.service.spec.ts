@@ -21,7 +21,7 @@ describe('Service Tests', () => {
             service = injector.get(AuthenticKeyService);
             httpMock = injector.get(HttpTestingController);
 
-            elemDefault = new AuthenticKey(0, 0, 0, false, false);
+            elemDefault = new AuthenticKey(0, 0, false, false);
         });
 
         describe('Service methods', async () => {
@@ -56,7 +56,6 @@ describe('Service Tests', () => {
                 const returnedFromService = Object.assign(
                     {
                         uniqueKey: 1,
-                        productId: 1,
                         assignmentStatus: true,
                         validStatus: true
                     },
@@ -76,7 +75,6 @@ describe('Service Tests', () => {
                 const returnedFromService = Object.assign(
                     {
                         uniqueKey: 1,
-                        productId: 1,
                         assignmentStatus: true,
                         validStatus: true
                     },

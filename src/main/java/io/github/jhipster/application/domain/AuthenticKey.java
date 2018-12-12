@@ -25,9 +25,6 @@ public class AuthenticKey implements Serializable {
     @Column(name = "unique_key")
     private Integer uniqueKey;
 
-    @Column(name = "product_id")
-    private Integer productId;
-
     @Column(name = "assignment_status")
     private Boolean assignmentStatus;
 
@@ -57,19 +54,6 @@ public class AuthenticKey implements Serializable {
 
     public void setUniqueKey(Integer uniqueKey) {
         this.uniqueKey = uniqueKey;
-    }
-
-    public Integer getProductId() {
-        return productId;
-    }
-
-    public AuthenticKey productId(Integer productId) {
-        this.productId = productId;
-        return this;
-    }
-
-    public void setProductId(Integer productId) {
-        this.productId = productId;
     }
 
     public Boolean isAssignmentStatus() {
@@ -137,7 +121,6 @@ public class AuthenticKey implements Serializable {
         return "AuthenticKey{" +
             "id=" + getId() +
             ", uniqueKey=" + getUniqueKey() +
-            ", productId=" + getProductId() +
             ", assignmentStatus='" + isAssignmentStatus() + "'" +
             ", validStatus='" + isValidStatus() + "'" +
             "}";

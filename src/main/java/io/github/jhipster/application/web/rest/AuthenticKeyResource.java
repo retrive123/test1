@@ -7,12 +7,11 @@ import io.github.jhipster.application.web.rest.errors.BadRequestAlertException;
 import io.github.jhipster.application.web.rest.util.HeaderUtil;
 import io.github.jhipster.web.util.ResponseUtil;
 import io.github.jhipster.application.service.dto.ResponseDetails;
-// import io.github.jhipster.application.service.UniqueKeyGenerator;
+//import io.github.jhipster.application.service.UniqueKeyGenerator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -32,7 +31,7 @@ public class AuthenticKeyResource {
     private static final String ENTITY_NAME = "authenticKey";
 
     private final AuthenticKeyService authenticKeyService;
-    
+
     public AuthenticKeyResource(AuthenticKeyService authenticKeyService) {
         this.authenticKeyService = authenticKeyService;
     }

@@ -43,9 +43,6 @@ public class AuthenticKeyResourceIntTest {
     private static final Integer DEFAULT_UNIQUE_KEY = 1;
     private static final Integer UPDATED_UNIQUE_KEY = 2;
 
-    private static final Integer DEFAULT_PRODUCT_ID = 1;
-    private static final Integer UPDATED_PRODUCT_ID = 2;
-
     private static final Boolean DEFAULT_ASSIGNMENT_STATUS = false;
     private static final Boolean UPDATED_ASSIGNMENT_STATUS = true;
 
@@ -94,7 +91,6 @@ public class AuthenticKeyResourceIntTest {
     public static AuthenticKey createEntity(EntityManager em) {
         AuthenticKey authenticKey = new AuthenticKey()
             .uniqueKey(DEFAULT_UNIQUE_KEY)
-            .productId(DEFAULT_PRODUCT_ID)
             .assignmentStatus(DEFAULT_ASSIGNMENT_STATUS)
             .validStatus(DEFAULT_VALID_STATUS);
         return authenticKey;
@@ -121,7 +117,6 @@ public class AuthenticKeyResourceIntTest {
         assertThat(authenticKeyList).hasSize(databaseSizeBeforeCreate + 1);
         AuthenticKey testAuthenticKey = authenticKeyList.get(authenticKeyList.size() - 1);
         assertThat(testAuthenticKey.getUniqueKey()).isEqualTo(DEFAULT_UNIQUE_KEY);
-        assertThat(testAuthenticKey.getProductId()).isEqualTo(DEFAULT_PRODUCT_ID);
         assertThat(testAuthenticKey.isAssignmentStatus()).isEqualTo(DEFAULT_ASSIGNMENT_STATUS);
         assertThat(testAuthenticKey.isValidStatus()).isEqualTo(DEFAULT_VALID_STATUS);
     }
@@ -157,7 +152,6 @@ public class AuthenticKeyResourceIntTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(authenticKey.getId().intValue())))
             .andExpect(jsonPath("$.[*].uniqueKey").value(hasItem(DEFAULT_UNIQUE_KEY)))
-            .andExpect(jsonPath("$.[*].productId").value(hasItem(DEFAULT_PRODUCT_ID)))
             .andExpect(jsonPath("$.[*].assignmentStatus").value(hasItem(DEFAULT_ASSIGNMENT_STATUS.booleanValue())))
             .andExpect(jsonPath("$.[*].validStatus").value(hasItem(DEFAULT_VALID_STATUS.booleanValue())));
     }
@@ -174,7 +168,6 @@ public class AuthenticKeyResourceIntTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(authenticKey.getId().intValue()))
             .andExpect(jsonPath("$.uniqueKey").value(DEFAULT_UNIQUE_KEY))
-            .andExpect(jsonPath("$.productId").value(DEFAULT_PRODUCT_ID))
             .andExpect(jsonPath("$.assignmentStatus").value(DEFAULT_ASSIGNMENT_STATUS.booleanValue()))
             .andExpect(jsonPath("$.validStatus").value(DEFAULT_VALID_STATUS.booleanValue()));
     }
@@ -201,7 +194,6 @@ public class AuthenticKeyResourceIntTest {
         em.detach(updatedAuthenticKey);
         updatedAuthenticKey
             .uniqueKey(UPDATED_UNIQUE_KEY)
-            .productId(UPDATED_PRODUCT_ID)
             .assignmentStatus(UPDATED_ASSIGNMENT_STATUS)
             .validStatus(UPDATED_VALID_STATUS);
 
@@ -215,7 +207,6 @@ public class AuthenticKeyResourceIntTest {
         assertThat(authenticKeyList).hasSize(databaseSizeBeforeUpdate);
         AuthenticKey testAuthenticKey = authenticKeyList.get(authenticKeyList.size() - 1);
         assertThat(testAuthenticKey.getUniqueKey()).isEqualTo(UPDATED_UNIQUE_KEY);
-        assertThat(testAuthenticKey.getProductId()).isEqualTo(UPDATED_PRODUCT_ID);
         assertThat(testAuthenticKey.isAssignmentStatus()).isEqualTo(UPDATED_ASSIGNMENT_STATUS);
         assertThat(testAuthenticKey.isValidStatus()).isEqualTo(UPDATED_VALID_STATUS);
     }

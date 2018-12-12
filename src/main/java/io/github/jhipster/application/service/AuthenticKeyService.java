@@ -40,6 +40,6 @@ public interface AuthenticKeyService {
      * @param id the id of the entity
      */
     void delete(Long id);
-
+    
     Optional<AuthenticKey> findByUniqueKey(int uniqueKey);
 }

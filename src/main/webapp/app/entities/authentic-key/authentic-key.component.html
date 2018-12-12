@@ -16,7 +16,6 @@
             <tr>
             <th><span>ID</span></th>
             <th><span>Unique Key</span></th>
-            <th><span>Product Id</span></th>
             <th><span>Assignment Status</span></th>
             <th><span>Valid Status</span></th>
             <th><span>Product Details</span></th>
@@ -27,7 +26,6 @@
             <tr *ngFor="let authenticKey of authenticKeys ;trackBy: trackId">
                 <td><a [routerLink]="['/authentic-key', authenticKey.id, 'view' ]">{{authenticKey.id}}</a></td>
                 <td>{{authenticKey.uniqueKey}}</td>
-                <td>{{authenticKey.productId}}</td>
                 <td>{{authenticKey.assignmentStatus}}</td>
                 <td>{{authenticKey.validStatus}}</td>
                 <td>

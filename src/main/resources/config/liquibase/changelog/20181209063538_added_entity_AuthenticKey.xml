@@ -26,10 +26,6 @@
                 <constraints nullable="true" />
             </column>
 
-            <column name="product_id" type="integer">
-                <constraints nullable="true" />
-            </column>
-
             <column name="assignment_status" type="bit">
                 <constraints nullable="true" />
             </column>

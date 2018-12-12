@@ -6,10 +6,6 @@
             "fieldType": "Integer"
         },
         {
-            "fieldName": "productId",
-            "fieldType": "Integer"
-        },
-        {
             "fieldName": "assignmentStatus",
             "fieldType": "Boolean"
         },

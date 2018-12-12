@@ -11,5 +11,5 @@ import java.util.Optional;
 @SuppressWarnings("unused")
 @Repository
 public interface AuthenticKeyRepository extends JpaRepository<AuthenticKey, Long> {
-    Optional<AuthenticKey> findByUniqueKey(int uniqueKey);
+	 Optional<AuthenticKey> findByUniqueKey(int uniqueKey);
 }
