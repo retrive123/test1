@@ -1,0 +1,66 @@
+<div>
+    <h2 id="page-heading">
+        <span>Authentic Keys</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-authentic-key" [routerLink]="['/authentic-key/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span >
+            Create new Authentic Key
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="authenticKeys">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span>ID</span></th>
+            <th><span>Unique Key</span></th>
+            <th><span>Product Id</span></th>
+            <th><span>Assignment Status</span></th>
+            <th><span>Valid Status</span></th>
+            <th><span>Product Details</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let authenticKey of authenticKeys ;trackBy: trackId">
+                <td><a [routerLink]="['/authentic-key', authenticKey.id, 'view' ]">{{authenticKey.id}}</a></td>
+                <td>{{authenticKey.uniqueKey}}</td>
+                <td>{{authenticKey.productId}}</td>
+                <td>{{authenticKey.assignmentStatus}}</td>
+                <td>{{authenticKey.validStatus}}</td>
+                <td>
+                    <div *ngIf="authenticKey.productDetails">
+                        <a [routerLink]="['../product-details', authenticKey.productDetails?.id, 'view' ]" >{{authenticKey.productDetails?.productId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/authentic-key', authenticKey.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/authentic-key', authenticKey.id, 'edit']"
+                                class="btn btn-primary btn-sm" disabled>
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'authentic-key/'+ authenticKey.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

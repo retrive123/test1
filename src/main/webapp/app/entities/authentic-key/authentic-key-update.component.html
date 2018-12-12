@@ -1,0 +1,51 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-authentic-key-heading">Create or edit a Authentic Key</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="true">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="authenticKey.id" readonly />
+                </div>
+                <div class="form-group" [hidden]="true">
+                    <label class="form-control-label" for="field_uniqueKey">Unique Key</label>
+                    <input type="number" class="form-control" name="uniqueKey" id="field_uniqueKey"
+                        [(ngModel)]="authenticKey.uniqueKey" />
+                </div>
+                <div class="form-group" [hidden]="true">
+                    <label class="form-control-label" for="field_productId">Product Id</label>
+                    <input type="number" class="form-control" name="productId" id="field_productId"
+                        [(ngModel)]="authenticKey.productId" />
+                </div>
+                <div class="form-group" [hidden]="true">
+                    <label class="form-control-label" for="field_assignmentStatus">Assignment Status</label>
+                    <input type="checkbox" class="form-control" name="assignmentStatus" id="field_assignmentStatus"
+                        [(ngModel)]="authenticKey.assignmentStatus" />
+                </div>
+                <div class="form-group" [hidden]="true">
+                    <label class="form-control-label" for="field_validStatus">Valid Status</label>
+                    <input type="checkbox" class="form-control" name="validStatus" id="field_validStatus"
+                        [(ngModel)]="authenticKey.validStatus" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_productDetails">Product Details</label>
+                    <select class="form-control" id="field_productDetails" name="productDetails" [(ngModel)]="authenticKey.productDetails">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="productDetailsOption.id === authenticKey.productDetails?.id ? authenticKey.productDetails : productDetailsOption" *ngFor="let productDetailsOption of productdetails; trackBy: trackProductDetailsById">{{productDetailsOption.productId}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

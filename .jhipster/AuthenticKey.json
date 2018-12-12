@@ -1,0 +1,40 @@
+{
+    "name": "AuthenticKey",
+    "fields": [
+        {
+            "fieldName": "uniqueKey",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "productId",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "assignmentStatus",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "validStatus",
+            "fieldType": "Boolean"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "productDetails",
+            "otherEntityName": "productDetails",
+            "otherEntityField": "productId",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "authenticKey"
+        }
+    ],
+    "changelogDate": "20181209063538",
+    "entityTableName": "authentic_key",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,40 @@
+{
+    "name": "Product",
+    "fields": [
+        {
+            "fieldName": "productName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "manuId",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "manuName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "productId",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "secretKey",
+            "otherEntityName": "secretKey",
+            "otherEntityField": "uniqueId",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "product"
+        }
+    ],
+    "changelogDate": "20181207120711",
+    "entityTableName": "product",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

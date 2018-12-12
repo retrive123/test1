@@ -1,0 +1,36 @@
+{
+    "name": "ProductDetails",
+    "fields": [
+        {
+            "fieldName": "productName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "manuId",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "manuName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "productId",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "productManuDate",
+            "fieldType": "LocalDate"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20181209063537",
+    "javadoc": "Task entity.\n@author The JHipster team.",
+    "entityTableName": "product_details",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

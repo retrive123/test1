@@ -1,0 +1,48 @@
+
+
+// an ignored comment
+/** not an ignored comment */
+
+
+/**
+ * Task entity.
+ * @author The JHipster team.
+ */
+
+
+
+
+
+entity ProductDetails {
+	productName String,
+	manuId Integer,
+    manuName String,
+	productId Integer,
+    productManuDate LocalDate
+}
+
+entity AuthenticKey {
+	uniqueKey Integer,
+
+	assignmentStatus Boolean,
+	validStatus Boolean,   
+}
+
+relationship OneToOne {
+    AuthenticKey{ProductDetails(productId)} to ProductDetails
+}
+
+
+
+
+// Set pagination options
+
+
+// Use Data Transfert Objects (DTO)
+// dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl 
+
+// Set an angular suffix
+// angularSuffix * with mySuffix
