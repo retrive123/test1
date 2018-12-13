@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import * as moment from 'moment';
 import { JhiAlertService } from 'ng-jhipster';
 
 import { IAuthenticKey } from 'app/shared/model/authentic-key.model';
@@ -18,6 +19,7 @@ export class AuthenticKeyUpdateComponent implements OnInit {
     isSaving: boolean;
 
     productdetails: IProductDetails[];
+    validationdateDp: any;
 
     constructor(
         private jhiAlertService: JhiAlertService,

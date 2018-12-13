@@ -15,7 +15,7 @@
         },
         {
             "fieldName": "productId",
-            "fieldType": "Integer"
+            "fieldType": "String"
         },
         {
             "fieldName": "productManuDate",

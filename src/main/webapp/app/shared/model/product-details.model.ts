@@ -5,7 +5,7 @@ export interface IProductDetails {
     productName?: string;
     manuId?: number;
     manuName?: string;
-    productId?: number;
+    productId?: string;
     productManuDate?: Moment;
 }
 
@@ -15,7 +15,7 @@ export class ProductDetails implements IProductDetails {
         public productName?: string,
         public manuId?: number,
         public manuName?: string,
-        public productId?: number,
+        public productId?: string,
         public productManuDate?: Moment
     ) {}
 }

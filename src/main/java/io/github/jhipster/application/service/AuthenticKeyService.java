@@ -41,5 +41,5 @@ public interface AuthenticKeyService {
      */
     void delete(Long id);
     
-    Optional<AuthenticKey> findByUniqueKey(int uniqueKey);
+    Optional<AuthenticKey> findByUniqueKey(String uniqueKey);
 }

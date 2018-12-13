@@ -25,7 +25,7 @@ describe('Service Tests', () => {
             httpMock = injector.get(HttpTestingController);
             currentDate = moment();
 
-            elemDefault = new ProductDetails(0, 'AAAAAAA', 0, 'AAAAAAA', 0, currentDate);
+            elemDefault = new ProductDetails(0, 'AAAAAAA', 0, 'AAAAAAA', 'AAAAAAA', currentDate);
         });
 
         describe('Service methods', async () => {
@@ -73,7 +73,7 @@ describe('Service Tests', () => {
                         productName: 'BBBBBB',
                         manuId: 1,
                         manuName: 'BBBBBB',
-                        productId: 1,
+                        productId: 'BBBBBB',
                         productManuDate: currentDate.format(DATE_FORMAT)
                     },
                     elemDefault
@@ -99,7 +99,7 @@ describe('Service Tests', () => {
                         productName: 'BBBBBB',
                         manuId: 1,
                         manuName: 'BBBBBB',
-                        productId: 1,
+                        productId: 'BBBBBB',
                         productManuDate: currentDate.format(DATE_FORMAT)
                     },
                     elemDefault

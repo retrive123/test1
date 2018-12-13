@@ -6,8 +6,7 @@ import io.github.jhipster.application.service.AuthenticKeyService;
 import io.github.jhipster.application.web.rest.errors.BadRequestAlertException;
 import io.github.jhipster.application.web.rest.util.HeaderUtil;
 import io.github.jhipster.web.util.ResponseUtil;
-import io.github.jhipster.application.service.dto.ResponseDetails;
-//import io.github.jhipster.application.service.UniqueKeyGenerator;
+import io.github.jhipster.application.service.dto.ResponseDetails;	
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
@@ -119,10 +118,9 @@ public class AuthenticKeyResource {
         authenticKeyService.delete(id);
         return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert(ENTITY_NAME, id.toString())).build();
     }
-
     @GetMapping("/authentic-check/{key}")
     @Timed
-    public ResponseEntity<ResponseDetails> getAuthenticKeyDetails(@PathVariable int key) {
+    public ResponseEntity<ResponseDetails> getAuthenticKeyDetails(@PathVariable String key) {
         log.debug("REST request to get AuthenticKey : {}", key);
         Optional<AuthenticKey> authenticKey = authenticKeyService.findByUniqueKey(key);
         if (authenticKey.isPresent()) {

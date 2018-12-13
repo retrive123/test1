@@ -17,15 +17,15 @@ entity ProductDetails {
 	productName String,
 	manuId Integer,
     manuName String,
-	productId Integer,
+	productId String,
     productManuDate LocalDate
 }
 
 entity AuthenticKey {
-	uniqueKey Integer,
-
+	uniqueKey String,
 	assignmentStatus Boolean,
-	validStatus Boolean,   
+	validStatus Boolean,
+	validationdate LocalDate
 }
 
 relationship OneToOne {

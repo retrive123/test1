@@ -6,6 +6,7 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 import javax.persistence.*;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Objects;
 
 /**
@@ -23,13 +24,16 @@ public class AuthenticKey implements Serializable {
     private Long id;
 
     @Column(name = "unique_key")
-    private Integer uniqueKey;
+    private String uniqueKey;
 
     @Column(name = "assignment_status")
     private Boolean assignmentStatus;
 
     @Column(name = "valid_status")
     private Boolean validStatus;
+
+    @Column(name = "validationdate")
+    private LocalDate validationdate;
 
     @OneToOne    @JoinColumn(unique = true)
     private ProductDetails productDetails;
@@ -43,16 +47,16 @@ public class AuthenticKey implements Serializable {
         this.id = id;
     }
 
-    public Integer getUniqueKey() {
+    public String getUniqueKey() {
         return uniqueKey;
     }
 
-    public AuthenticKey uniqueKey(Integer uniqueKey) {
+    public AuthenticKey uniqueKey(String uniqueKey) {
         this.uniqueKey = uniqueKey;
         return this;
     }
 
-    public void setUniqueKey(Integer uniqueKey) {
+    public void setUniqueKey(String uniqueKey) {
         this.uniqueKey = uniqueKey;
     }
 
@@ -80,6 +84,19 @@ public class AuthenticKey implements Serializable {
 
     public void setValidStatus(Boolean validStatus) {
         this.validStatus = validStatus;
+    }
+
+    public LocalDate getValidationdate() {
+        return validationdate;
+    }
+
+    public AuthenticKey validationdate(LocalDate validationdate) {
+        this.validationdate = validationdate;
+        return this;
+    }
+
+    public void setValidationdate(LocalDate validationdate) {
+        this.validationdate = validationdate;
     }
 
     public ProductDetails getProductDetails() {
@@ -120,9 +137,10 @@ public class AuthenticKey implements Serializable {
     public String toString() {
         return "AuthenticKey{" +
             "id=" + getId() +
-            ", uniqueKey=" + getUniqueKey() +
+            ", uniqueKey='" + getUniqueKey() + "'" +
             ", assignmentStatus='" + isAssignmentStatus() + "'" +
             ", validStatus='" + isValidStatus() + "'" +
+            ", validationdate='" + getValidationdate() + "'" +
             "}";
     }
 }

@@ -7,11 +7,11 @@ import java.util.Date;
 public class UniqueKeyGenerator {
 
 
-static int getuniquekey() {
+static String getuniquekey() {
 	Date date = new Date();
     String strDateFormat = "ddmmhhmmss";
     DateFormat dateFormat = new SimpleDateFormat(strDateFormat);
     String formattedDate= dateFormat.format(date);
-	return Integer.parseInt(formattedDate);
+	return formattedDate ;
 }
 }

@@ -75,10 +75,9 @@ public class AuthenticKeyServiceImpl implements AuthenticKeyService {
         log.debug("Request to delete AuthenticKey : {}", id);
         authenticKeyRepository.deleteById(id);
     }
-    
     @Override
     @Transactional(readOnly = true)
-    public Optional<AuthenticKey> findByUniqueKey(int uniqueKey) {
+    public Optional<AuthenticKey> findByUniqueKey(String uniqueKey) {
         log.debug("Request to get AuthenticKey : {}", uniqueKey);
         return authenticKeyRepository.findByUniqueKey(uniqueKey);
     }

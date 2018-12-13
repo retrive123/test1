@@ -10,7 +10,7 @@ import javax.persistence.metamodel.StaticMetamodel;
 public abstract class ProductDetails_ {
 
 	public static volatile SingularAttribute<ProductDetails, String> manuName;
-	public static volatile SingularAttribute<ProductDetails, Integer> productId;
+	public static volatile SingularAttribute<ProductDetails, String> productId;
 	public static volatile SingularAttribute<ProductDetails, LocalDate> productManuDate;
 	public static volatile SingularAttribute<ProductDetails, Long> id;
 	public static volatile SingularAttribute<ProductDetails, Integer> manuId;

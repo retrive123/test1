@@ -36,7 +36,7 @@ public class ProductDetails implements Serializable {
     private String manuName;
 
     @Column(name = "product_id")
-    private Integer productId;
+    private String productId;
 
     @Column(name = "product_manu_date")
     private LocalDate productManuDate;
@@ -89,16 +89,16 @@ public class ProductDetails implements Serializable {
         this.manuName = manuName;
     }
 
-    public Integer getProductId() {
+    public String getProductId() {
         return productId;
     }
 
-    public ProductDetails productId(Integer productId) {
+    public ProductDetails productId(String productId) {
         this.productId = productId;
         return this;
     }
 
-    public void setProductId(Integer productId) {
+    public void setProductId(String productId) {
         this.productId = productId;
     }
 
@@ -143,7 +143,7 @@ public class ProductDetails implements Serializable {
             ", productName='" + getProductName() + "'" +
             ", manuId=" + getManuId() +
             ", manuName='" + getManuName() + "'" +
-            ", productId=" + getProductId() +
+            ", productId='" + getProductId() + "'" +
             ", productManuDate='" + getProductManuDate() + "'" +
             "}";
     }

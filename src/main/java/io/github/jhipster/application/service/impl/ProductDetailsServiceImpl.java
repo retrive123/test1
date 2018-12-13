@@ -40,7 +40,7 @@ public class ProductDetailsServiceImpl implements ProductDetailsService {
     @Override
     public ProductDetails save(ProductDetails productDetails) {
         log.debug("Request to save ProductDetails : {}", productDetails);
-        String str = SecurityUtils.getCurrentUserLogin().toString();
+                String str = SecurityUtils.getCurrentUserLogin().toString();
         str = str.substring(str.indexOf("[") + 1);
         str = str.substring(0, str.indexOf("]"));
         Optional<User> user= userRepository.findOneByLogin(str);

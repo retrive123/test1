@@ -3,7 +3,7 @@
     "fields": [
         {
             "fieldName": "uniqueKey",
-            "fieldType": "Integer"
+            "fieldType": "String"
         },
         {
             "fieldName": "assignmentStatus",
@@ -12,6 +12,10 @@
         {
             "fieldName": "validStatus",
             "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "validationdate",
+            "fieldType": "LocalDate"
         }
     ],
     "relationships": [

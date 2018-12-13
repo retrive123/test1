@@ -51,8 +51,8 @@ public class ProductDetailsResourceIntTest {
     private static final String DEFAULT_MANU_NAME = "AAAAAAAAAA";
     private static final String UPDATED_MANU_NAME = "BBBBBBBBBB";
 
-    private static final Integer DEFAULT_PRODUCT_ID = 1;
-    private static final Integer UPDATED_PRODUCT_ID = 2;
+    private static final String DEFAULT_PRODUCT_ID = "AAAAAAAAAA";
+    private static final String UPDATED_PRODUCT_ID = "BBBBBBBBBB";
 
     private static final LocalDate DEFAULT_PRODUCT_MANU_DATE = LocalDate.ofEpochDay(0L);
     private static final LocalDate UPDATED_PRODUCT_MANU_DATE = LocalDate.now(ZoneId.systemDefault());
@@ -166,7 +166,7 @@ public class ProductDetailsResourceIntTest {
             .andExpect(jsonPath("$.[*].productName").value(hasItem(DEFAULT_PRODUCT_NAME.toString())))
             .andExpect(jsonPath("$.[*].manuId").value(hasItem(DEFAULT_MANU_ID)))
             .andExpect(jsonPath("$.[*].manuName").value(hasItem(DEFAULT_MANU_NAME.toString())))
-            .andExpect(jsonPath("$.[*].productId").value(hasItem(DEFAULT_PRODUCT_ID)))
+            .andExpect(jsonPath("$.[*].productId").value(hasItem(DEFAULT_PRODUCT_ID.toString())))
             .andExpect(jsonPath("$.[*].productManuDate").value(hasItem(DEFAULT_PRODUCT_MANU_DATE.toString())));
     }
     
@@ -184,7 +184,7 @@ public class ProductDetailsResourceIntTest {
             .andExpect(jsonPath("$.productName").value(DEFAULT_PRODUCT_NAME.toString()))
             .andExpect(jsonPath("$.manuId").value(DEFAULT_MANU_ID))
             .andExpect(jsonPath("$.manuName").value(DEFAULT_MANU_NAME.toString()))
-            .andExpect(jsonPath("$.productId").value(DEFAULT_PRODUCT_ID))
+            .andExpect(jsonPath("$.productId").value(DEFAULT_PRODUCT_ID.toString()))
             .andExpect(jsonPath("$.productManuDate").value(DEFAULT_PRODUCT_MANU_DATE.toString()));
     }
 

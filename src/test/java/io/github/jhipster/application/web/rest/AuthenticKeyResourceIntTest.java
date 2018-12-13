@@ -22,6 +22,8 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.List;
 
 
@@ -40,14 +42,17 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest(classes = JhipsterSampleApplicationApp.class)
 public class AuthenticKeyResourceIntTest {
 
-    private static final Integer DEFAULT_UNIQUE_KEY = 1;
-    private static final Integer UPDATED_UNIQUE_KEY = 2;
+    private static final String DEFAULT_UNIQUE_KEY = "AAAAAAAAAA";
+    private static final String UPDATED_UNIQUE_KEY = "BBBBBBBBBB";
 
     private static final Boolean DEFAULT_ASSIGNMENT_STATUS = false;
     private static final Boolean UPDATED_ASSIGNMENT_STATUS = true;
 
     private static final Boolean DEFAULT_VALID_STATUS = false;
     private static final Boolean UPDATED_VALID_STATUS = true;
+
+    private static final LocalDate DEFAULT_VALIDATIONDATE = LocalDate.ofEpochDay(0L);
+    private static final LocalDate UPDATED_VALIDATIONDATE = LocalDate.now(ZoneId.systemDefault());
 
     @Autowired
     private AuthenticKeyRepository authenticKeyRepository;
@@ -92,7 +97,8 @@ public class AuthenticKeyResourceIntTest {
         AuthenticKey authenticKey = new AuthenticKey()
             .uniqueKey(DEFAULT_UNIQUE_KEY)
             .assignmentStatus(DEFAULT_ASSIGNMENT_STATUS)
-            .validStatus(DEFAULT_VALID_STATUS);
+            .validStatus(DEFAULT_VALID_STATUS)
+            .validationdate(DEFAULT_VALIDATIONDATE);
         return authenticKey;
     }
 
@@ -119,6 +125,7 @@ public class AuthenticKeyResourceIntTest {
         assertThat(testAuthenticKey.getUniqueKey()).isEqualTo(DEFAULT_UNIQUE_KEY);
         assertThat(testAuthenticKey.isAssignmentStatus()).isEqualTo(DEFAULT_ASSIGNMENT_STATUS);
         assertThat(testAuthenticKey.isValidStatus()).isEqualTo(DEFAULT_VALID_STATUS);
+        assertThat(testAuthenticKey.getValidationdate()).isEqualTo(DEFAULT_VALIDATIONDATE);
     }
 
     @Test
@@ -151,9 +158,10 @@ public class AuthenticKeyResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(authenticKey.getId().intValue())))
-            .andExpect(jsonPath("$.[*].uniqueKey").value(hasItem(DEFAULT_UNIQUE_KEY)))
+            .andExpect(jsonPath("$.[*].uniqueKey").value(hasItem(DEFAULT_UNIQUE_KEY.toString())))
             .andExpect(jsonPath("$.[*].assignmentStatus").value(hasItem(DEFAULT_ASSIGNMENT_STATUS.booleanValue())))
-            .andExpect(jsonPath("$.[*].validStatus").value(hasItem(DEFAULT_VALID_STATUS.booleanValue())));
+            .andExpect(jsonPath("$.[*].validStatus").value(hasItem(DEFAULT_VALID_STATUS.booleanValue())))
+            .andExpect(jsonPath("$.[*].validationdate").value(hasItem(DEFAULT_VALIDATIONDATE.toString())));
     }
     
     @Test
@@ -167,9 +175,10 @@ public class AuthenticKeyResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(authenticKey.getId().intValue()))
-            .andExpect(jsonPath("$.uniqueKey").value(DEFAULT_UNIQUE_KEY))
+            .andExpect(jsonPath("$.uniqueKey").value(DEFAULT_UNIQUE_KEY.toString()))
             .andExpect(jsonPath("$.assignmentStatus").value(DEFAULT_ASSIGNMENT_STATUS.booleanValue()))
-            .andExpect(jsonPath("$.validStatus").value(DEFAULT_VALID_STATUS.booleanValue()));
+            .andExpect(jsonPath("$.validStatus").value(DEFAULT_VALID_STATUS.booleanValue()))
+            .andExpect(jsonPath("$.validationdate").value(DEFAULT_VALIDATIONDATE.toString()));
     }
 
     @Test
@@ -195,7 +204,8 @@ public class AuthenticKeyResourceIntTest {
         updatedAuthenticKey
             .uniqueKey(UPDATED_UNIQUE_KEY)
             .assignmentStatus(UPDATED_ASSIGNMENT_STATUS)
-            .validStatus(UPDATED_VALID_STATUS);
+            .validStatus(UPDATED_VALID_STATUS)
+            .validationdate(UPDATED_VALIDATIONDATE);
 
         restAuthenticKeyMockMvc.perform(put("/api/authentic-keys")
             .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -209,6 +219,7 @@ public class AuthenticKeyResourceIntTest {
         assertThat(testAuthenticKey.getUniqueKey()).isEqualTo(UPDATED_UNIQUE_KEY);
         assertThat(testAuthenticKey.isAssignmentStatus()).isEqualTo(UPDATED_ASSIGNMENT_STATUS);
         assertThat(testAuthenticKey.isValidStatus()).isEqualTo(UPDATED_VALID_STATUS);
+        assertThat(testAuthenticKey.getValidationdate()).isEqualTo(UPDATED_VALIDATIONDATE);
     }
 
     @Test
